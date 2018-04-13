@@ -23,10 +23,8 @@ export default class Home extends Component{
           title = "Login"
         />
         <View>
-           <Image
-                   style={{width: 100, height: 100}}
-                   source={{url:'https://s3.envato.com/files/243549096/Clock%20Background%2001_preview1.JPG'}}
-           />
+        <Image source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+          style={{width: 400, height: 400}} />
         </View>
       </View>
     )

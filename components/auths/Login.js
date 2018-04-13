@@ -18,10 +18,9 @@ export default class Login extends Component{
       <View style={styles.container}>
          <View style={styles.loginContainer}>
             <Image
-                    resizeMode="contain"
-                    style={styles.logo}
-                    source={{url:'https://s3.envato.com/files/243549096/Clock%20Background%2001_preview1.JPG'}}
-            />
+                  resizeMode="contain"
+                   source={{uri: 'https://facebook.github.io/react/logo-og.png'}}
+                   style={styles.logo} />
          </View>
         <View style={styles.formContainer}>
           <Text>form</Text>
