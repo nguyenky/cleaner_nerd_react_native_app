@@ -28,7 +28,12 @@ export default class Login extends Component{
   onClickListener = (viewId) => {
     Alert.alert("Alert", "Button pressed "+viewId);
   }
+  login(){
+
+    // this.props.navigation.push('Home');
+  }
   render(){
+    var {navigate} = this.props.navigation;
     return(
       <ImageBackground
           source={{uri: 'https://raw.githubusercontent.com/dwicao/react-native-login-screen/master/src/images/wallpaper.png'}}
@@ -53,7 +58,7 @@ export default class Login extends Component{
                   onChangeText={(password) => this.setState({password})}/>
             </View>
 
-            <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.onClickListener('login')}>
+            <TouchableHighlight style={[styles.buttonContainer, styles.loginButton]} onPress={() => this.login()}>
               <Text style={styles.loginText}>Login</Text>
             </TouchableHighlight>
 
