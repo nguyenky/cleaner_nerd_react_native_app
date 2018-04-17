@@ -9,6 +9,7 @@ import{
   Alert,
   TouchableHighlight,
   TextInput,
+  AsyncStorage,
 } from 'react-native';
 import PropTypes from 'prop-types';
 import Wallpaper from './Wallpaper';
@@ -24,13 +25,55 @@ export default class Login extends Component{
       email   : '',
       password: '',
     }
+    this.getStorage();
   }
   onClickListener = (viewId) => {
     Alert.alert("Alert", "Button pressed "+viewId);
   }
+  saveStorage = async(user)=>{
+    try {
+      await AsyncStorage.setItem('@email:key',user.email);
+      console.log('save')
+      this.props.navigation.push('Home');
+    } catch (error) {
+      // Error saving data
+    }
+  }
+  getStorage = async()=>{
+    try {
+      const value = await AsyncStorage.getItem('@email:key');
+      console.log('get')
+      if (value !== null){
+        console.log(value);
+        this.props.navigation.push('Home');
+      }
+    } catch (error) {
+      // Error retrieving data
+    }
+  }
   login(){
+    fetch('http://cleaningnerds.com/api/v1/auths/login',{
+      method:"POST",
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+      }),
+    })
+    .then((response) => response.json())
+    .then((responseJson) => {
+      if(responseJson.success){
+        this.saveStorage(responseJson.data.user);
+      }
 
-    // this.props.navigation.push('Home');
+      // this.props.navigation.push('Home');
+    })
+    .catch((error) => {
+      console.error(error);
+    });
   }
   render(){
     var {navigate} = this.props.navigation;
