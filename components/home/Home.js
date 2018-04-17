@@ -32,7 +32,6 @@ export default class Home extends Component{
     this.props.navigation.push('Login');
   }
   render(){
-    var {navigate} = this.props.navigation;
     return(
       <View>
         <Text>Home Page</Text>
