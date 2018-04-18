@@ -18,14 +18,17 @@ import {
 
 import Login from './components/auths/Login.js';
 import Home from './components/home/Home.js';
+import Products from './components/home/Products.js';
+import TabBar from './components/home/TabBar.js';
 
 const Navigation = StackNavigator({
   Login:{screen:Login},
   Home:{screen:Home},
+  TabBar:{screen:TabBar},
+  Products:{screen:Products},
   },{
-    initialRouteName: 'Home',
+    initialRouteName: 'TabBar',
     headerMode: 'screen'
   }
-  // navigationOptions:{ header:{ visible:false }}
 );
 export default Navigation;

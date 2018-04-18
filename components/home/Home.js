@@ -21,18 +21,18 @@ export default class Home extends Component{
       const value = await AsyncStorage.getItem('@email:key');
       if (value !== null){
       }else{
-        this.props.navigation.push('Login');
+        this.props.navigator.push('Login');
       }
     } catch (error) {
       // Error retrieving data
     }
   }
   logout(){
+    const {navigator} = this.props;
     AsyncStorage.removeItem('@email:key');
-    this.props.navigation.push('Login');
+    navigator.push('Login');
   }
   render(){
-    var {navigate} = this.props.navigation;
     return(
       <View>
         <Text>Home Page</Text>
