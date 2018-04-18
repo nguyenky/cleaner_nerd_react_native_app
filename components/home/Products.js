@@ -4,6 +4,7 @@ import{
   Text,
   Button,
   Image,
+  TouchableOpacity
 } from 'react-native';
 import Home from './Home.js';
 export default class Products extends Component{
@@ -11,9 +12,18 @@ export default class Products extends Component{
     header:null,
     title: 'Welcome to Cleaning nerd !!!',
   };
+  gotoHome(){
+    const {navigator} = this.props;
+    navigator.push('Home');
+  }
   render(){
     return(
-        <View></View>
+        <View>
+          <Text>Products</Text>
+          <TouchableOpacity onPress={this.gotoHome.bind(this)}>
+            <Text>Home</Text>
+          </TouchableOpacity>
+        </View>
     );
   }
 }

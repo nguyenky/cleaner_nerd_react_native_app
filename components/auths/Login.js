@@ -25,7 +25,7 @@ export default class Login extends Component{
       email   : '',
       password: '',
     }
-    this.getStorage();
+    // this.getStorage();
   }
   onClickListener = (viewId) => {
     Alert.alert("Alert", "Button pressed "+viewId);
@@ -34,7 +34,7 @@ export default class Login extends Component{
     try {
       await AsyncStorage.setItem('@email:key',user.email);
       console.log('save')
-      this.props.navigation.push('Home');
+      this.props.navigation.push('TabBar');
     } catch (error) {
       // Error saving data
     }
@@ -45,7 +45,7 @@ export default class Login extends Component{
       console.log('get')
       if (value !== null){
         console.log(value);
-        this.props.navigation.push('Home');
+        this.props.navigation.push('TabBar');
       }
     } catch (error) {
       // Error retrieving data

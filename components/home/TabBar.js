@@ -31,14 +31,14 @@ export default class TabBar extends Component{
           renderIcon={() => <Image style={styles.icons} source={require("../../images/icons/home-befor.png")} />}
           renderSelectedIcon={() => <Image style={styles.icons} source={require("../../images/icons/home-after.png")} />}
           onPress={() => this.setState({ selectedTab: 'home' })}>
-          <Home />
+          <Home navigator= {this.props.navigation} />
         </TabNavigator.Item>
         <TabNavigator.Item
           selected={this.state.selectedTab === 'product'}
           renderIcon={() => <Image style={styles.icons} source={require("../../images/icons/product-befor.png")} />}
           renderSelectedIcon={() => <Image style={styles.icons} source={require("../../images/icons/product-after.png")} />}
           onPress={() => this.setState({ selectedTab: 'product' })}>
-          <Products />
+          <Products navigator= {this.props.navigation} />
         </TabNavigator.Item>
         <TabNavigator.Item
           selected={this.state.selectedTab === 'orders'}

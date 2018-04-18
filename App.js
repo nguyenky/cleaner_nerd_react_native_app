@@ -27,7 +27,7 @@ const Navigation = StackNavigator({
   TabBar:{screen:TabBar},
   Products:{screen:Products},
   },{
-    initialRouteName: 'Home',
+    initialRouteName: 'TabBar',
     headerMode: 'screen'
   }
 );
