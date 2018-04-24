@@ -24,6 +24,7 @@ export default class TabBar extends Component{
     }
   }
   render(){
+    const { open } = this.props;
     return(
       <TabNavigator>
         <TabNavigator.Item
@@ -31,14 +32,14 @@ export default class TabBar extends Component{
           renderIcon={() => <Image style={styles.icons} source={require("../../images/icons/home-befor.png")} />}
           renderSelectedIcon={() => <Image style={styles.icons} source={require("../../images/icons/home-after.png")} />}
           onPress={() => this.setState({ selectedTab: 'home' })}>
-          <Home navigator= {this.props.navigation} />
+          <Home navigator= {this.props.navigation} open = {open} />
         </TabNavigator.Item>
         <TabNavigator.Item
           selected={this.state.selectedTab === 'product'}
           renderIcon={() => <Image style={styles.icons} source={require("../../images/icons/product-befor.png")} />}
           renderSelectedIcon={() => <Image style={styles.icons} source={require("../../images/icons/product-after.png")} />}
           onPress={() => this.setState({ selectedTab: 'product' })}>
-          <Products navigator= {this.props.navigation} />
+          <Products navigator= {this.props.navigation}  />
         </TabNavigator.Item>
         <TabNavigator.Item
           selected={this.state.selectedTab === 'orders'}

@@ -5,6 +5,7 @@ import{
   Button,
   Image,
   AsyncStorage,
+  TouchableOpacity,
 } from 'react-native';
 
 export default class Home extends Component{
@@ -27,6 +28,10 @@ export default class Home extends Component{
       // Error retrieving data
     }
   }
+  openMenu(){
+    const { open } = this.props;
+    open();
+  }
   logout(){
     const {navigator} = this.props;
     AsyncStorage.removeItem('@email:key');
@@ -35,6 +40,9 @@ export default class Home extends Component{
   render(){
     return(
       <View>
+        <TouchableOpacity onPress={()=>this.openMenu()}>
+          <Text>Open</Text>
+        </TouchableOpacity>
         <Text>Home Page</Text>
         <Button
           onPress={()=>this.logout()}
